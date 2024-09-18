@@ -5,10 +5,10 @@ import torch.nn.functional as F
 class SimCCLoss(nn.Module):
     def __init__(
         self, 
-        beta=1.0,
-        label_beta=10.0,
-        label_softmax=False,
-        use_target_weight=True, 
+        beta: float = 1.0,
+        label_beta: float = 10.0,
+        label_softmax: bool = False,
+        use_target_weight: bool = True, 
         # mask=None,
         # mask_weight=1.0
     ):
@@ -31,7 +31,6 @@ class SimCCLoss(nn.Module):
         return loss
 
     def forward(self, pred_simcc, gt_simcc, target_weight):
-
         N, K, _ = pred_simcc[0].shape
         loss = 0
         
