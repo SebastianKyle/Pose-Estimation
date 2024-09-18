@@ -110,6 +110,7 @@ int main(int, char **)
 
         cv::imshow("Image", img);
 
+        // 'q' to quit
         int k = cv::waitKey(10);
         if (k == 113)
             break;
