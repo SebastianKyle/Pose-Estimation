@@ -35,7 +35,8 @@ int main(int, char **)
 {
     cv::cuda::printCudaDeviceInfo(0);
 
-    cv::dnn::Net net = cv::dnn::readNetFromONNX("../../../../models/simcc_192x256.onnx");
+    // Read model from onnx format
+    cv::dnn::Net net = cv::dnn::readNetFromONNX("../../../../models/simcc_192x256.onnx"); // you may adjust the path to your needs
     net.setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
     net.setPreferableTarget(cv::dnn::DNN_TARGET_CUDA);
 
