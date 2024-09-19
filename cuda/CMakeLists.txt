@@ -33,7 +33,8 @@ else (CUDA_FOUND)
 endif()
 
 include_directories(
-    ${OpenCV_INCLUDE_DIRS}
+    ${OpenCV_INCLUDE_DIRS},
+    ${CUDA_INCLUDE_DIRS}
 )
 
 set(SOURCES

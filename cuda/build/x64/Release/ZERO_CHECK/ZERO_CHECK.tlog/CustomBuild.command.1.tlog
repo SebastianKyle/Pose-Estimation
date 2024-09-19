@@ -1,0 +1,10 @@
+^D:\SELF_PRACTICING\COMPUTER VISION\PROJECTS\POSE_DETECTION\REPO\CUDA\BUILD\CMAKEFILES\81AD3108E919D8FBF5E46F7289CE6EFC\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/Self_Practicing/Computer Vision/projects/pose_detection/repo/cuda" "-BD:/Self_Practicing/Computer Vision/projects/pose_detection/repo/cuda/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/Self_Practicing/Computer Vision/projects/pose_detection/repo/cuda/build/OpenCV_GPU.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

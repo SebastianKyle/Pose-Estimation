@@ -87,6 +87,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/opencv_gpu/build/install/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -107,10 +108,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <CudaCompile>
-      <Include>C:\opencv_gpu\build\install\include;%(Include)</Include>
+      <Include>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\opencv_gpu\build\install\include;%(Include)</Include>
       <Defines>%(Defines);_WINDOWS;CMAKE_INTDIR="Debug"</Defines>
       <AdditionalOptions>%(AdditionalOptions) -std=c++17 -Xcompiler="/EHsc -Zi -Ob0"</AdditionalOptions>
       <CodeGeneration></CodeGeneration>
@@ -126,7 +127,7 @@
       <Warning>W3</Warning>
     </CudaCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -153,6 +154,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/opencv_gpu/build/install/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -173,10 +175,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <CudaCompile>
-      <Include>C:\opencv_gpu\build\install\include;%(Include)</Include>
+      <Include>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\opencv_gpu\build\install\include;%(Include)</Include>
       <Defines>%(Defines);_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</Defines>
       <AdditionalOptions>%(AdditionalOptions) -std=c++17 -Xcompiler="/EHsc -Ob2"</AdditionalOptions>
       <CodeGeneration></CodeGeneration>
@@ -191,7 +193,7 @@
       <Warning>W3</Warning>
     </CudaCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -218,6 +220,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/opencv_gpu/build/install/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -238,10 +241,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <CudaCompile>
-      <Include>C:\opencv_gpu\build\install\include;%(Include)</Include>
+      <Include>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\opencv_gpu\build\install\include;%(Include)</Include>
       <Defines>%(Defines);_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</Defines>
       <AdditionalOptions>%(AdditionalOptions) -std=c++17 -Xcompiler="/EHsc -Ob1"</AdditionalOptions>
       <CodeGeneration></CodeGeneration>
@@ -256,7 +259,7 @@
       <Warning>W3</Warning>
     </CudaCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -283,6 +286,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/opencv_gpu/build/install/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -302,10 +306,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <CudaCompile>
-      <Include>C:\opencv_gpu\build\install\include;%(Include)</Include>
+      <Include>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\opencv_gpu\build\install\include;%(Include)</Include>
       <Defines>%(Defines);_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</Defines>
       <AdditionalOptions>%(AdditionalOptions) -std=c++17 -Xcompiler="/EHsc -Zi -Ob1"</AdditionalOptions>
       <CodeGeneration></CodeGeneration>
@@ -320,7 +324,7 @@
       <Warning>W3</Warning>
     </CudaCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\opencv_gpu\build\install\include,;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\opencv_gpu\build\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
