@@ -97,7 +97,6 @@ __global__ void maximum_kernel(
     int tid = threadIdx.x;
     int idx = threadIdx.x + blockDim.x * blockIdx.x;
 
-    int label_idx = idx % label_size;
     int joint_idx = (idx / label_size) % num_joints;
     int batch_idx = idx / (num_joints * label_size);
 
@@ -134,7 +133,6 @@ __global__ void gaussian_blur_1d(
     int tid = threadIdx.x;
     int idx = threadIdx.x + blockDim.x * blockIdx.x;
 
-    int label_idx = idx % label_size;
     int joint_idx = (idx / label_size) % num_joints;
     int batch_idx = idx / (num_joints * label_size);
 
@@ -175,7 +173,6 @@ __global__ void dark_refine(
     int tid = threadIdx.x;
     int idx = threadIdx.x + blockDim.x * blockIdx.x;
 
-    int label_idx = idx % label_size;
     int joint_idx = (idx / label_size) % num_joints;
     int batch_idx = idx / (num_joints * label_size);
 

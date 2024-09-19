@@ -10,10 +10,11 @@
 cv::VideoCapture cap(0);
 
 struct Configs {
-    cv::Size INPUT_SIZE = cv::Size(192, 256);
-    float SIGMA = 20.0f;
-    float DECODE_BETA = 150.0f;
-    float VISIBILITY_CONFIDENCE = 0.38f;
+    cv::Size INPUT_SIZE = cv::Size(192, 256);       // Size of input image to forward
+    float SIGMA = 20.0f;                            // Sigma for gaussian distribution of predicted labels
+    float DECODE_BETA = 150.0f;                     // Beta for softmax to decode visibility
+    float VISIBILITY_CONFIDENCE = 0.38f;            // Threshold to decide joint visibility
+    int FRAMES_TO_PRED = 0;                         // Frames between forwarding attempts (you may adjust to your needs)
 };
 
 inline const Configs g_Configs;
@@ -44,52 +45,59 @@ int main(int, char **)
     cv::Mat input;
     cv::Mat blob;
 
+    std::vector<cv::Point2f> joints;
+    std::vector<float> visibility;
+
+    int count_frames = 0;
     while (cap.isOpened())
     {
+        count_frames++;
+
         auto start = cv::getTickCount();
 
         cap.read(img);
         input = img.clone();
 
-        cv::resize(input, input, g_Configs.INPUT_SIZE);
-        blob = cv::dnn::blobFromImage(input, 1.0/255.0, g_Configs.INPUT_SIZE, cv::Scalar(0, 0, 0), true, false);
-        blob = blob.reshape(1, { 1, blob.size[1], blob.size[2], blob.size[3] });
+        if (g_Configs.FRAMES_TO_PRED == 0 || count_frames % g_Configs.FRAMES_TO_PRED == 0) {
+            cv::resize(input, input, g_Configs.INPUT_SIZE);
+            blob = cv::dnn::blobFromImage(input, 1.0/255.0, g_Configs.INPUT_SIZE, cv::Scalar(0, 0, 0), true, false);
+            blob = blob.reshape(1, { 1, blob.size[1], blob.size[2], blob.size[3] });
 
-        net.setInput(blob);
-        std::vector< cv::Mat > outputBlobs;
-        net.forward(outputBlobs, net.getUnconnectedOutLayersNames());
+            net.setInput(blob);
+            std::vector< cv::Mat > outputBlobs;
+            net.forward(outputBlobs, net.getUnconnectedOutLayersNames());
 
-        cv::Mat simcc_x = outputBlobs[0];
-        cv::Mat simcc_y = outputBlobs[1];
+            cv::Mat simcc_x = outputBlobs[0];
+            cv::Mat simcc_y = outputBlobs[1];
 
-        int batch_size = simcc_x.size[0];
-        int num_joints = simcc_x.size[1];
-        int W = simcc_x.size[2];
-        int H = simcc_y.size[2];
+            int batch_size = simcc_x.size[0];
+            int num_joints = simcc_x.size[1];
+            int W = simcc_x.size[2];
+            int H = simcc_y.size[2];
 
-        std::vector<cv::Mat> x_labels, y_labels;
-        for (int i = 0; i < batch_size; ++i) {
-            cv::Mat x_batch = simcc_x.row(i).clone().reshape(1, 1);
-            cv::Mat y_batch = simcc_y.row(i).clone().reshape(1, 1);
-            x_labels.push_back(x_batch);
-            y_labels.push_back(y_batch);
+            std::vector<cv::Mat> x_labels, y_labels;
+            for (int i = 0; i < batch_size; ++i) {
+                cv::Mat x_batch = simcc_x.row(i).clone().reshape(1, 1);
+                cv::Mat y_batch = simcc_y.row(i).clone().reshape(1, 1);
+                x_labels.push_back(x_batch);
+                y_labels.push_back(y_batch);
+            }
+            
+            joints.clear();
+            visibility.clear();
+            decode_simcc_labels(
+                x_labels,
+                y_labels,
+                batch_size,
+                num_joints,
+                W,
+                H,
+                g_Configs.SIGMA,
+                g_Configs.DECODE_BETA,
+                joints,
+                visibility
+            );
         }
-        
-        std::vector<cv::Point2f> joints;
-        std::vector<float> visibility;
-
-        decode_simcc_labels(
-            x_labels,
-            y_labels,
-            batch_size,
-            num_joints,
-            W,
-            H,
-            g_Configs.SIGMA,
-            g_Configs.DECODE_BETA,
-            joints,
-            visibility
-        );
 
         for (size_t i = 0; i < joints.size(); ++i) {
             cv::Point2f joint = joints[i];
