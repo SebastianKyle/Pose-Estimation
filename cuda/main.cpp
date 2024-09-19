@@ -36,7 +36,7 @@ int main(int, char **)
     cv::cuda::printCudaDeviceInfo(0);
 
     // Read model from onnx format
-    cv::dnn::Net net = cv::dnn::readNetFromONNX("../../../../models/simcc_192x256.onnx"); // you may adjust the path to your needs
+    cv::dnn::Net net = cv::dnn::readNetFromONNX("../../models/simcc_192x256.onnx"); // you may adjust the path to your needs
     net.setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
     net.setPreferableTarget(cv::dnn::DNN_TARGET_CUDA);
 
@@ -109,7 +109,7 @@ int main(int, char **)
         std::cout << "\n FPS: " << fps << std::endl;
         cv::putText(img, "FPS: " + std::to_string(int(fps)), cv::Point(50, 50), cv::FONT_HERSHEY_DUPLEX, 1, cv::Scalar(0, 255, 255), 1);
 
-        cv::imshow("Image", img);
+        cv::imshow("Camera", img);
 
         // 'q' to quit
         int k = cv::waitKey(10);

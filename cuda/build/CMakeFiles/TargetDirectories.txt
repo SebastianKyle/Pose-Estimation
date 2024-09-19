@@ -1,9 +1,0 @@
-D:/Self_Practicing/Computer Vision/projects/pose_detection/repo/cuda/build/CMakeFiles/OpenCV_GPU.dir
-D:/Self_Practicing/Computer Vision/projects/pose_detection/repo/cuda/build/CMakeFiles/Experimental.dir
-D:/Self_Practicing/Computer Vision/projects/pose_detection/repo/cuda/build/CMakeFiles/Nightly.dir
-D:/Self_Practicing/Computer Vision/projects/pose_detection/repo/cuda/build/CMakeFiles/Continuous.dir
-D:/Self_Practicing/Computer Vision/projects/pose_detection/repo/cuda/build/CMakeFiles/NightlyMemoryCheck.dir
-D:/Self_Practicing/Computer Vision/projects/pose_detection/repo/cuda/build/CMakeFiles/PACKAGE.dir
-D:/Self_Practicing/Computer Vision/projects/pose_detection/repo/cuda/build/CMakeFiles/RUN_TESTS.dir
-D:/Self_Practicing/Computer Vision/projects/pose_detection/repo/cuda/build/CMakeFiles/ALL_BUILD.dir
-D:/Self_Practicing/Computer Vision/projects/pose_detection/repo/cuda/build/CMakeFiles/ZERO_CHECK.dir
