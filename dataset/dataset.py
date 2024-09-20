@@ -7,7 +7,7 @@ import cv2
 import json
 import numpy as np
 import random
-from utils import SimCCLabel
+from loc_utils import SimCCLabel
 from typing import Tuple
 from itertools import product
 

@@ -204,7 +204,7 @@ class SimCCLabel:
         simcc = np.pad(simcc, ((0, 0), (0, 0), (2, 2)), 'edge')
 
         for n in range(N):
-            px = (keypoints[n] + 2.5).astype(np.int64).reshape(-1, 1)
+            px = (keypoints[n]).astype(np.int64).reshape(-1, 1) # +2.5 ?
 
             dx0 = np.take_along_axis(simcc[n], px, axis=1)
             dx1 = np.take_along_axis(simcc[n], px + 1, axis=1)

@@ -4,7 +4,7 @@ import torch.nn.functional as F
 from torchvision import models
 import numpy as np
 import scipy.ndimage
-from utils import SimCCLabel
+from loc_utils import SimCCLabel
 
 # SimCC Head
 class SimCC(nn.Module):
