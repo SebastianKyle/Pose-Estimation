@@ -37,7 +37,7 @@ Pose-Estimation
 
 - According to SimCC paper, we split each pixel into multiple bins (horizontally and vertically) using the splitting factor and set as >= 1 to reduce quantization error, resulting in sub-pixel localization precision. This means that the encoded labels from the dataset will be of length W * k or H * k (k is split ratio).
 - The encoding and decoding methods are based on Gaussian distribution assumption for both x and y labels.
-- One may feel free to adjust the configurations for the model architecture (number of deconv layers, split ratio, sigma for gaussian distribution, even the backbone, ...) for experiments.
+- One may feel free to adjust the configurations for the model architecture (input size, number of deconv layers, split ratio, sigma for gaussian distribution, even the backbone, ...) for experiments.
 
 ## Training
 - The training process uses a custom loss function which utilizes the Kullback-Leiber divergence.
