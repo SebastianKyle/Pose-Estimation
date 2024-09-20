@@ -39,6 +39,11 @@ Pose-Estimation
 - The encoding and decoding methods are based on Gaussian distribution assumption for both x and y labels.
 - One may feel free to adjust the configurations for the model architecture (number of deconv layers, split ratio, sigma for gaussian distribution, even the backbone, ...) for experiments.
 
+## Training
+- The training process uses a custom loss function which utilizes the Kullback-Leiber divergence.
+- Adam optimizer was used with a starting learning rate of 0.001 (feel free to adjust).
+- Base on your needs, you might adjust the steps per epoch, validation steps and number of epochs.
+
 ## Demo
 - You can download my trained model with the configurations in the code through this link: https://drive.google.com/file/d/1mD7LQEm3TWfU1roH0qDVL-CR9jwp0nNo/view?usp=sharing
 - Put it in the 'model' folder in the repo directory and you're good to go.
