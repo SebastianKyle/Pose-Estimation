@@ -28,7 +28,7 @@ Pose-Estimation
 - The train2017 and val2017 folders contain the images from the dataset.
 
 ## Model Architecture
-- Pose Model uses resnet50 as backbone, a few transpose convolution (deconvolution) layers to upscale the feature maps and finally go through SimCC head (linear classifiers) to produce x (horizontal) and y (vertical) labels.
+- Pose Model uses pretrained resnet50 as backbone, a few transpose convolution (deconvolution) layers to upscale the feature maps and finally go through SimCC head (linear classifiers) to produce x (horizontal) and y (vertical) labels.
 
 - Then the predicted labels go through a decoding process which utilizes DARK refinement to produce the final joints coordinates.
 - A diagram of the model archirecture with the configurations I used:
