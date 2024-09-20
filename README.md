@@ -27,7 +27,7 @@ Application for experimenting in training pose estimation model using SimCC arch
 ![](./results/people1.jpg)
 ![](./results/people10.png)
 
-- A demo for real time pose estimation using cuda C++ code.
+- A demo for real time pose estimation using OpenCV and cuda C++ (you may want to adjust CMakeLists.txt file to your needs).
 
 https://github.com/user-attachments/assets/1301cbf8-3757-47e5-a573-f8595614d2e3
 
