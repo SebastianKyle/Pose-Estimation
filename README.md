@@ -24,7 +24,7 @@ Application for experimenting in training pose estimation model using SimCC arch
 ## Demo
 - A few demo images of pose estimation using my trained model.
 
-![](./results/girls.jpg)
+![](./results/people1.jpg)
 ![](./results/people10.png)
 
 - A demo for real time pose estimation using cuda C++ code.
