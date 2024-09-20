@@ -56,3 +56,6 @@ Pose-Estimation
 
 https://github.com/user-attachments/assets/1301cbf8-3757-47e5-a573-f8595614d2e3
 
+## References
+* [Is 2D Heatmap Representation Even Necessary for Human Pose Estimation?, Yanjie Li and Sen Yang and Shoukui Zhang and Zhicheng Wang and Wankou Yang and Shu-Tao Xia and Erjin Zhou](https://github.com/leeyegy/SimCC)
+* [Distribution-Aware Coordinate Representation for Human Pose Estimation, Zhang, Feng and Zhu, Xiatian and Dai, Hanbin and Ye, Mao and Zhu, Ce](https://github.com/ilovepose/DarkPose)
